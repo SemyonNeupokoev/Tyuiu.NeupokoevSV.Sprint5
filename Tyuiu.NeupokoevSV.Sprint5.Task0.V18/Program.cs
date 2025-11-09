@@ -6,7 +6,7 @@ internal class Program
         DataService ds = new DataService();
         int x = 3; Console.WriteLine($"x = {x}");
         string res = ds.SaveToFileTextData(x);
-        Console.WriteLine("Файл: {res}");
+        Console.WriteLine($"Файл: {res}");
         Console.WriteLine("Создан");
         Console.ReadKey();
     }
