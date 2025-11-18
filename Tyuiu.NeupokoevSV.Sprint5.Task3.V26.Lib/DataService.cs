@@ -7,11 +7,11 @@ namespace Tyuiu.NeupokoevSV.Sprint5.Task3.V26.Lib
         public string SaveToFileTextData(int x)
         {
             string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask3.txt");
-            double f = 0.7 * Math.Pow(x, 3) + 1.52 * Math.Pow(x, 2);
-            f = Math.Pow(f, 3);
+            double y = 0.7 * Math.Pow(x, 3) + 1.52 * Math.Pow(x, 2);
+            y = Math.Round(y, 3);
             using (BinaryWriter write = new BinaryWriter(File.Open(path, FileMode.OpenOrCreate), Encoding.UTF8))
             {
-                write.Write(BitConverter.GetBytes(f));
+                write.Write(BitConverter.GetBytes(y));
             }
             return path;
         }
