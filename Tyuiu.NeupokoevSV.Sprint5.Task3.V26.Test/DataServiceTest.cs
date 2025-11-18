@@ -7,7 +7,7 @@ namespace Tyuiu.NeupokoevSV.Sprint5.Task3.V26.Test
         [TestMethod]
         public void TestMethod1()
         {
-            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask3.bin");
+            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask3.txt");
             FileInfo fileinfo = new FileInfo(path);
             bool fileExists = fileinfo.Exists;
             Assert.IsTrue(fileExists);
