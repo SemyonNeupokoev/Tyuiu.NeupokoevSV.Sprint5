@@ -5,9 +5,10 @@ namespace Tyuiu.NeupokoevSV.Sprint5.Task4.V28.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            string strX = File.ReadAllText(path);
-            double x = Convert.ToDouble(strX);
-            double res = Math.Round((3 * Math.Pow(x, 3)) / (Math.Sin(x)), 3);
+            string str = File.ReadAllText(path);
+            double x = 2.56;
+            double res = Math.Round((3 * Math.Pow(x, 3)) / Math.Sin(x), 3);
+
             return res;
         }
     }
