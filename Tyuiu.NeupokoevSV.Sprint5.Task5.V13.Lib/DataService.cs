@@ -5,23 +5,30 @@ namespace Tyuiu.NeupokoevSV.Sprint5.Task5.V13.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            using (StreamReader reader = new StreamReader(path))
+            string text = File.ReadAllText(path);
+            string[] numbers = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            double sum = 0;
+            int count = 0;
+
+            foreach (string numStr in numbers)
             {
-                string line = reader.ReadLine(); // Читаем всю строку
-                if (line == null) return 0;
+                // Нормализуем разделитель и преобразуем в число
+                string norm = numStr.Replace('.', ',');
 
-                string[] numbers = line.Split(' ');
-                double res = 0;
-                int a = 0;
-
-                foreach (string numStr in numbers)
+                if (double.TryParse(norm, out double number))
                 {
-                    res += Convert.ToDouble(numStr.Replace('.', ','));
-                    a++;
+                    // Проверяем, находится ли число в диапазоне от -1.5 до 1.5
+                    if (number >= -1.5 && number <= 1.5)
+                    {
+                        sum += number;
+                        count++;
+                    }
                 }
-
-                return Math.Round(res / a, 3);
             }
+            double average = sum / count;
+
+            return Math.Round(average, 3);
         }
     }
 }
